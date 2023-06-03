@@ -5,9 +5,10 @@ import { Child3 } from "./Child3";
 const style = {
   height: "200px",
   backgroundColor: "lightblue",
-  padding: "8px"
+  padding: "8px",
 };
 export const Child1 = memo((props) => {
+  console.log(props); // objectが入っている（具体的には、「onClickReset」イベント）
   console.log("Child1レンダリング");
   const { onClickReset } = props;
 
