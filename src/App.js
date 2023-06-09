@@ -2,6 +2,8 @@ import { useState, memo, useCallback } from "react";
 import { Child1 } from "./components/Child1";
 import { Child4 } from "./components/Child4";
 
+// memo化しないと、app.js以下の階層のコンポーネントが再レンダリングされる
+// とは言え、あくまで「state」が変わった時だけ、再レンダリングされない(それがメモ化)
 export const App = memo(() => {
   // memo()と書いて、メモ化（再レンダリングの制御）が可能
   console.log("Appレンダリング");
@@ -14,7 +16,6 @@ export const App = memo(() => {
   // };
   const onClickReset = useCallback(() => {
     // 関数の呼び出し制御
-    // 関数の制御
     // useCallback関数を使用して、レンダリングされないようにする
     setNum(0);
   }, []);
